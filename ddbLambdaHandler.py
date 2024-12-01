@@ -25,6 +25,9 @@ def lambda_handler(event, context):
 
         return {
             'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': 'https://markflanagan.org'
+            },
             'body': json.dumps({'visitorCount': visCount})
 
         }

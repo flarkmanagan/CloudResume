@@ -10,7 +10,7 @@ def lambda_handler(event, context):
         response = table.get_item(Key={'id': 'visits'})
         # .get() is a native python dictionary method to retrieve the value associated with the key 'count'
         # the second param in .get() is the value to be returned if it can't find a value for 'count'
-        visCount = int(response['Item'].get('visitorCount', 0))
+        visCount = int(response['Item'].get('visitorCount', 0)) #convert to int as ddb uses decimal type for numbers
         visCount += 1
 
         table.update_item(

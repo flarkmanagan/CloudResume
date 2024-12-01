@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Flanagan - CV</title>
+    <script src="scripts/LambdaCaller.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            font-size: 1.1em;
+        }
+        .contact-info a, .education-item a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .experience, .education, .skills {
+            list-style-type: none;
+            padding: 0;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 15px;
+        }
+        .experience-item h3, .education-item h3 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .experience-item p, .education-item p {
+            margin: 5px 0;
+        }
+        .skills-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mark Flanagan</h1>
+        <div class="contact-info">
+        	<p>Location: Dublin, Ireland | Mobile: 0861297602 | Email: <a href="mailto:markf212@gmail.com">markf212@gmail.com</a></p>
+            <p>LinkedIn: <a href="http://ie.linkedin.com/in/markf121" target="_blank">http://ie.linkedin.com/in/markf121</a></p>
+        </div>
+        
+        <div class="section">
+            <h2>Personal Profile</h2>
+            <p>Datacentre Operations Engineer with 5 years of experience in problem solving and project management in datacentres and IT infrastructure looking for the next career step.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Experience</h2>
+            <ul class="experience">
+                <li class="experience-item">
+                    <h3>Career Break (July 2021 - Present)</h3>
+                    <ul class="skills-list">
+                        <li>Took an extended career break to travel and focus on personal development. Converted a van into a campervan to travel around Europe. Predominantly touring Spain for rock climbing and learning Spanish.</li>
+                        <li>More recently spent the time upskilling. Refreshing Python programming skills and completing the AWS Solutions Architect – Associate Certificate.</li>
+                    </ul>
+                </li>
+                <li class="experience-item">
+                    <h3>Datacentre Operations Engineer (April 2019 – July 2021) - Paddy Power Betfair (Flutter Entertainment)</h3>
+                    <ul class="skills-list">
+                        <li>Maintained DC estate as well as comms rooms across European offices. Working at pace to resolve compute, storage and network incidents in accordance with SLA’s.</li>
+                        <li>Worked as part of a fast-paced team using the SCRUM workflow methodology.</li>
+                        <li>Participated in out of hours on-call rota ensuring business-critical incidents were resolved in a timely manner.</li>
+                        <li>Created SOPs for installs, troubleshooting and dealing with recurring incidents.</li>
+                        <li>Collaborated with business stakeholders and infrastructure teams to plan and deliver projects such as MPLS network upgrades, rollout of private cloud infrastructure, and power redundancy remediation.</li>
+                    </ul>
+                </li>
+                <li class="experience-item">
+                    <h3>Infrastructure Engineer - Secondment (February 2021 – April 2021) - Paddy Power Betfair (Flutter Entertainment)</h3>
+                    <ul class="skills-list">
+                        <li>Joined the Infra Ops team on a short secondment.</li>
+                        <li>Managed backup appliances and storage arrays including provisioning, zoning, and performance monitoring.</li>
+                        <li>Maintained Hyper-V and VMware estate.</li>
+                        <li>Performed Root Cause Analysis and troubleshooting on Linux and Windows servers.</li>
+                    </ul>
+                </li>
+                <li class="experience-item">
+                    <h3>Associate Datacentre Operations Engineer (July 2016 – April 2019) - Paddy Power Betfair (Flutter Entertainment)</h3>
+                </li>
+                <li class="experience-item">
+                    <h3>Datacentre Operations Intern (January 2015 – July 2015) - Betfair</h3>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Education & Certifications</h2>
+            <ul class="education">
+                <li class="education-item">
+                    <h3>AWS Solutions Architect Associate</h3>
+                    <p>September 2024 <a href="https://www.credly.com/badges/891fd25a-aed3-4520-8a39-b4e99bdeed47" target="_blank"> - Credly</a></p>
+                </li>
+                <li class="education-item">
+                    <h3>LPI Linux Essentials</h3>
+                    <p>June 2018</p>
+                </li>
+                <li class="education-item">
+                    <h3>CompTIA Network +</h3>
+                    <p>December 2017</p>
+                </li>
+                <li class="education-item">
+                    <h3>BSc (Honours) Computer Science</h3>
+                    <p>September 2012 – May 2016, School of Computing, Dublin Institute of Technology, Kevin Street, Dublin 8</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Skills Profile</h2>
+            <ul class="skills-list">
+                <li>Linux OS and network troubleshooting</li>
+                <li>AWS Administration</li>
+                <li>Python Programming</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Website Hits</h3>
+            <p id="hitCounter"></p>
+        </div>
+    </div>
+</body>
+</html>

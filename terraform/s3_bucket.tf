@@ -6,26 +6,7 @@ resource "aws_s3_bucket" "web_bucket" {
 
 resource "aws_s3_bucket_policy" "web_bucket" {
   bucket = aws_s3_bucket.web_bucket.id
-
-  policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowCloudFrontServicePrincipal",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "cloudfront.amazonaws.com"
-            },
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::markflanagan.org/*",
-            "Condition": {
-                "StringEquals": {
-                    "AWS:SourceArn": "arn:aws:cloudfront::905418439559:distribution/EBR6IBUN75HCD"
-                }
-            }
-        }
-    ]
-  })
+  policy = data.aws_iam_policy_document.web_bucket_policy.json
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "web_bucket_sse_config" {
@@ -33,8 +14,22 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "web_bucket_sse_co
   
   rule {
    apply_server_side_encryption_by_default {
-    sse_algorithm     = "aws:kms"
+    sse_algorithm     = "AES256"
    }
    bucket_key_enabled = true 
   }
+}
+
+resource "aws_s3_object" "html" {
+  bucket = aws_s3_bucket.web_bucket.bucket
+  key = "index.html"
+  source = "${path.module}/../index.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "js" {
+  bucket = aws_s3_bucket.web_bucket.bucket
+  key = "scripts/LambdaCaller.js"
+  source = "${path.module}/../scripts/LambdaCaller.js"
+  content_type = "application/javascript"
 }

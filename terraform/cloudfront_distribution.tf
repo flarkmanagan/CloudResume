@@ -1,32 +1,31 @@
-resource "aws_cloudfront_distribution" "tfer--EBR6IBUN75HCD" {
-  aliases = ["markflanagan.org"]
+resource "aws_cloudfront_distribution" "s3_distribution" {
+
+  origin {
+    connection_attempts      = "3"
+    connection_timeout       = "10"
+    origin_access_control_id = aws_cloudfront_origin_access_control.cf_oac.id
+    domain_name              = aws_s3_bucket.web_bucket.bucket_regional_domain_name
+    origin_id                = aws_s3_bucket.web_bucket.bucket_regional_domain_name
+  }
 
   default_cache_behavior {
-    allowed_methods        = ["HEAD", "GET"]
+    #cache policy id for CachingOptimized
     cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    allowed_methods        = ["HEAD", "GET"]
     cached_methods         = ["GET", "HEAD"]
     compress               = "true"
-    default_ttl            = "0"
-    max_ttl                = "0"
-    min_ttl                = "0"
     smooth_streaming       = "false"
-    target_origin_id       = "markflanagan.org.s3-website-eu-west-1.amazonaws.com"
+    target_origin_id       = aws_s3_bucket.web_bucket.bucket_regional_domain_name
     viewer_protocol_policy = "redirect-to-https"
   }
 
   enabled         = "true"
   http_version    = "http2"
   is_ipv6_enabled = "true"
-
-  origin {
-    connection_attempts      = "3"
-    connection_timeout       = "10"
-    domain_name              = "markflanagan.org.s3.eu-west-1.amazonaws.com"
-    origin_access_control_id = "E3VDELD6QQA22R"
-    origin_id                = "markflanagan.org.s3-website-eu-west-1.amazonaws.com"
-  }
-
   price_class = "PriceClass_All"
+  retain_on_delete = "false"
+  staging          = "false"
+  default_root_object = "index.html"
 
   restrictions {
     geo_restriction {
@@ -34,13 +33,17 @@ resource "aws_cloudfront_distribution" "tfer--EBR6IBUN75HCD" {
     }
   }
 
-  retain_on_delete = "false"
-  staging          = "false"
-
   viewer_certificate {
-    acm_certificate_arn            = "arn:aws:acm:us-east-1:905418439559:certificate/b1cb3e91-6d57-4033-8108-5345e72a7081"
-    cloudfront_default_certificate = "false"
-    minimum_protocol_version       = "TLSv1.2_2021"
-    ssl_support_method             = "sni-only"
+    #acm_certificate_arn            = "arn:aws:acm:us-east-1:905418439559:certificate/b1cb3e91-6d57-4033-8108-5345e72a7081"
+    cloudfront_default_certificate = "true" # set to false when using certificate
+    #minimum_protocol_version       = "TLSv1.2_2021"
+    #ssl_support_method             = "sni-only"
   }
+}
+
+resource "aws_cloudfront_origin_access_control" "cf_oac" {
+  name                              = aws_s3_bucket.web_bucket.bucket_regional_domain_name
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
 }

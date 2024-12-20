@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "SiteVisits" {
+resource "aws_dynamodb_table" "ddb_table" {
   billing_mode                = "PAY_PER_REQUEST"
   deletion_protection_enabled = "false"
   hash_key                    = "id"
@@ -15,5 +15,10 @@ resource "aws_dynamodb_table" "SiteVisits" {
   attribute {
     name = "id"
     type = "S"
+  }
+
+  attribute {
+    name = "visitorCount"
+    type = "N"
   }
 }

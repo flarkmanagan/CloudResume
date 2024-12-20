@@ -1,3 +1,6 @@
 deadwood/
 terraform/.terraform
 test_terraform/
+*.zip
+terraform.tfstate
+terraform.tfstate.backup

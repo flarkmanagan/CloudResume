@@ -1,0 +1,4 @@
+name: Infrastructure Deployment
+
+on:
+  push:

@@ -1,10 +1,9 @@
 name: Infrastructure Deployment
 
-
-#on:
-#  push:
-#    branches:
-#      - main
+on:
+  push:
+    paths:
+      - 'terraform/**'
 
 jobs:
   terraform:

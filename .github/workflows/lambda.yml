@@ -19,6 +19,7 @@ jobs:
       - name: Deploy Lambda function
         run: |
           aws lambda update-function-code \
+            --region eu-west-1 \
             --function-name VisitorCounterUpdater \
             --zip-file fileb://function.zip
 

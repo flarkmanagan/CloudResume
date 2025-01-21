@@ -13,11 +13,6 @@ def lambda_handler(event, context):
         if 'Item' not in response:
             table.put_item(Item={'id': 'visits', 'visitorCount': 0})
         
-        # .get() is a native python dictionary method to retrieve the value associated with the key 'count'
-        # the second param in .get() is the value to be returned if it can't find a value for 'count'
-        #visCount = int(response['Item'].get('visitorCount', 0)) #convert to int as ddb uses decimal type for numbers
-        #visCount += 1
-
         response = table.update_item(
             Key={
                 'id': 'visits'
@@ -38,7 +33,6 @@ def lambda_handler(event, context):
                 'Access-Control-Allow-Origin': '*' # change back to https://markflanagan.org after testing
             },
             'body': json.dumps({'visitorCount': visitor_count})
-
         }
     
     except ClientError as e:

@@ -1,0 +1,22 @@
+name: Frontend Deployment
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Sync JS to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          
+        run: |
+          aws s3 sync ./frontend/scripts s3://markflanagan.org --delete

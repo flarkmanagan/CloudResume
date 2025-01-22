@@ -70,7 +70,6 @@ resource "aws_iam_role_policy_attachment" "attach_lambda_logging" {
   policy_arn = aws_iam_policy.lambda_logging.arn
 }
 
-
 #resource "aws_lambda_permission" "lambda_allow_rest_api" {
 #  statement_id = "AllowRESTAPIGatewayInvoke"
 #  action        = "lambda:InvokeFunction"
@@ -91,7 +90,7 @@ resource "aws_lambda_permission" "lambda_allow_http_api" {
 
 data "archive_file" "lambda" {
   type = "zip"
-  source_file = "../lambda_function.py"
+  source_file = "../backend/lambda_function.py"
   output_path = "../terraform/lambda_function_payload.zip"
 }
 

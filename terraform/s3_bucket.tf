@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "web_bucket" {
 
 }
 
-resource "aws_s3_bucket_policy" "web_bucket" {
+resource "aws_s3_bucket_policy" "web_bucket_policy" {
   bucket = aws_s3_bucket.web_bucket.id
   policy = data.aws_iam_policy_document.web_bucket_policy.json
 }
@@ -20,6 +20,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "web_bucket_sse_co
   }
 }
 
+/*
 resource "aws_s3_object" "html" {
   bucket = aws_s3_bucket.web_bucket.bucket
   key = "index.html"
@@ -33,3 +34,4 @@ resource "aws_s3_object" "js" {
   source = "${path.module}/../scripts/LambdaCaller.js"
   content_type = "application/javascript"
 }
+*/

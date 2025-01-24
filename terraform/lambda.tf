@@ -56,11 +56,11 @@ resource "aws_iam_policy" "lambda_logging" {
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "lambda_execution_role"
+  name = "AWSLambdaExecution_CloudResChallenge"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
-resource "aws_iam_role_policy_attachment" "attatch_ddb_policy" {
+resource "aws_iam_role_policy_attachment" "attach_ddb_policy" {
   role = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.ddb_get_update_policy.arn
 }
@@ -69,15 +69,6 @@ resource "aws_iam_role_policy_attachment" "attach_lambda_logging" {
   role = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_logging.arn
 }
-
-#resource "aws_lambda_permission" "lambda_allow_rest_api" {
-#  statement_id = "AllowRESTAPIGatewayInvoke"
-#  action        = "lambda:InvokeFunction"
-#  function_name = aws_lambda_function.lambda_counter.function_name
-#  principal = "apigateway.amazonaws.com"
-#  source_arn = "${aws_api_gateway_rest_api.lambda_rest_api.execution_arn}/*/GET/${var.api_resource_name}"
-#}
-
 
 resource "aws_lambda_permission" "lambda_allow_http_api" {
   statement_id = "AllowHTTPAPIGatewayInvoke"

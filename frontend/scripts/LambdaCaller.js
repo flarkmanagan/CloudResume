@@ -1,4 +1,4 @@
-fetch('https://f9fm79pz96.execute-api.eu-west-1.amazonaws.com/prod/update-count')
+fetch('https://uklka6v4r1.execute-api.eu-west-1.amazonaws.com/VisitorCounterUpdater')
 .then(data => {
 return data.json();
 })

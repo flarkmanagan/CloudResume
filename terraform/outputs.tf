@@ -3,7 +3,7 @@ output "cloudfront_url" {
 }
 
 output "api_invoke_url" {
-  value = aws_apigatewayv2_stage.api_stage.invoke_url
+  value = "${aws_apigatewayv2_stage.api_stage.invoke_url}/${var.lambda_name}"
 }
 
 output "dynamodb_table" {

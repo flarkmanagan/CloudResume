@@ -26,6 +26,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   retain_on_delete = "false"
   staging          = "false"
   default_root_object = "index.html"
+  aliases = ["markflanagan.org"]
 
   restrictions {
     geo_restriction {
@@ -34,10 +35,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    #acm_certificate_arn            = "arn:aws:acm:us-east-1:905418439559:certificate/b1cb3e91-6d57-4033-8108-5345e72a7081"
-    cloudfront_default_certificate = "true" # set to false when using certificate
-    #minimum_protocol_version       = "TLSv1.2_2021"
-    #ssl_support_method             = "sni-only"
+    acm_certificate_arn            = "arn:aws:acm:us-east-1:905418439559:certificate/e1a27472-1f84-4a78-9464-d54ac6d3bbda"
+    cloudfront_default_certificate = "false" # set to false when using certificate
+    minimum_protocol_version       = "TLSv1.2_2021"
+    ssl_support_method             = "sni-only"
   }
 }
 

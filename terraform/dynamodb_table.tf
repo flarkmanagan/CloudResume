@@ -21,4 +21,11 @@ resource "aws_dynamodb_table" "ddb_table" {
     name = "visitorCount"
     type = "N"
   }
+
+  global_secondary_index {
+    name = "visitorCountIndex"
+    hash_key = "visitorCount"
+    projection_type = "ALL"
+  }
+
 }

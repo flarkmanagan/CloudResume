@@ -9,7 +9,6 @@ table = dynamodb.Table('SiteVisits')
 def lambda_handler(event, context):
     try:
         response = table.get_item(Key={'id': 'visits'})
-        #Added comment for CICD testing purposes 
 
         if 'Item' not in response:
             table.put_item(Item={'id': 'visits', 'visitorCount': 0})

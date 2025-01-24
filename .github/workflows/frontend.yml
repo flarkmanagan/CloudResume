@@ -19,4 +19,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           
         run: |
-          aws s3 sync ./frontend/scripts s3://markflanagan.org --delete
+          aws s3 sync ./frontend/scripts s3://markflanagan.org

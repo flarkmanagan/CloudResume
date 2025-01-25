@@ -1,3 +1,5 @@
+const apiGatewayURL = "<API_GATEWAY_URL>"
+
 fetch('https://uklka6v4r1.execute-api.eu-west-1.amazonaws.com/VisitorCounterUpdater')
 .then(data => {
 return data.json();

@@ -32,7 +32,7 @@ jobs:
 
       - name: Get API URL
         id: get_api_url
-        run: echo"::set-output name=invoke_url::$(terraform output -raw api_invoke_url)
+        run: echo "::set-output name=invoke_url::$(terraform output -raw api_invoke_url)"
 
       - name: Insert url into JS
         run: |

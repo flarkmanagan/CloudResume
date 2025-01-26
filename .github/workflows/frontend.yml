@@ -29,6 +29,9 @@ jobs:
         working-directory: ./terraform
         run: terraform init
 
+      - name: Test terraform outputs
+        working-directory: ./terraform
+        run: terraform output
 
       - name: Get API URL
         id: get_api_url

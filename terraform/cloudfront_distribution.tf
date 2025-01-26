@@ -36,7 +36,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     acm_certificate_arn            = "arn:aws:acm:us-east-1:905418439559:certificate/e1a27472-1f84-4a78-9464-d54ac6d3bbda"
-    cloudfront_default_certificate = "false" # set to false when using certificate
+    cloudfront_default_certificate = "false"
     minimum_protocol_version       = "TLSv1.2_2021"
     ssl_support_method             = "sni-only"
   }

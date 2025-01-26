@@ -35,9 +35,11 @@ jobs:
 
       - name: Get API URL
         id: get_api_url
+        working-directory: ./terraform
         run: echo "::set-output name=invoke_url::$(terraform output -raw api_invoke_url)"
 
       - name: Insert url into JS
+        working-directory: ./terraform
         run: |
           sed -i 's|<API_GATEWAY_URL>|${{ steps.get_api_url.outputs.invoke_url }}|g' ./frontend/scripts/LambdaCaller.js
 

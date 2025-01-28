@@ -4,7 +4,7 @@ from botocore.exceptions import ClientError
 from boto3.dynamodb.conditions import Attr
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('SiteVisits')
+table = dynamodb.Table('<TABLE_NAME>')
 
 def lambda_handler(event, context):
     try:

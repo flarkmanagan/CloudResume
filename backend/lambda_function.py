@@ -8,10 +8,10 @@ table = dynamodb.Table('<TABLE_NAME>')
 
 def lambda_handler(event, context):
     try:
-        response = table.get_item(Key={'id': 'visits'})
+        #response = table.get_item(Key={'id': 'visits'})
 
-        if 'Item' not in response:
-            table.put_item(Item={'id': 'visits', 'visitorCount': 0})
+        #if 'Item' not in response:
+        #    table.put_item(Item={'id': 'visits', 'visitorCount': 0})
         
         response = table.update_item(
             Key={

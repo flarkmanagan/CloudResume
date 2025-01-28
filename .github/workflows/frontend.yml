@@ -39,9 +39,8 @@ jobs:
         working-directory: ./terraform
         run: |
           echo "invoke_url=$(terraform output -raw api_invoke_url)" >> $GITHUB_ENV
-          cd /
-          ls
-#          sed -i 's|<API_GATEWAY_URL>|$invoke_url|g' ./frontend/scripts/LambdaCaller.js
+          cd ..
+          sed -i 's|<API_GATEWAY_URL>|$invoke_url|g' ./frontend/scripts/LambdaCaller.js
 
       - name: Sync JS to S3
         env:

@@ -1,4 +1,4 @@
-const apiGatewayURL = "<API_GATEWAY_URL>"
+const apiGatewayURL = "<API_GATEWAY_URL>" //test
 fetch(apiGatewayURL)
 .then(data => {
 return data.json();

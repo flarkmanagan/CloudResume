@@ -1,5 +1,5 @@
 describe('API Test', () => {
-  const invokeUrl = '<API_URL>';
+  const invokeUrl = '<API_GATEWAY_URL>';
 
   it('Return visit count and 200 response code', () => {
     cy.request({

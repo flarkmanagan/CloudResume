@@ -5,5 +5,5 @@ return data.json();
 })
 .then(post => {
 console.log(post.visitorCount);
-document.getElementById("hitCounter").innerHTML = post.visitorCount;
+document.getElementById("hitCounter").innerHTML += post.visitorCount;
 });

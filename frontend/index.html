@@ -22,6 +22,9 @@
         .section {
             margin-bottom: 20px;
         }
+        .section a {
+            text-decoration: none;
+        }
         .contact-info {
             font-size: 1.1em;
         }
@@ -42,6 +45,9 @@
         }
         .experience-item p, .education-item p {
             margin: 5px 0;
+        }
+        .experience-item>h3 {
+            font-style: italic;
         }
         .skills-list {
             list-style-type: disc;
@@ -110,30 +116,19 @@
         
         <div class="section">
             <h2>Education & Certifications</h2>
-            <ul class="education">
-                <li class="education-item">
-                    <h3>AWS Solutions Architect Associate</h3>
-                    <p>September 2024 <a href="https://www.credly.com/badges/891fd25a-aed3-4520-8a39-b4e99bdeed47" target="_blank"> - Credly</a></p>
-                </li>
-                <li class="education-item">
-                    <h3>LPI Linux Essentials</h3>
-                    <p>June 2018</p>
-                </li>
-                <li class="education-item">
-                    <h3>CompTIA Network +</h3>
-                    <p>December 2017</p>
-                </li>
-                <li class="education-item">
-                    <h3>BSc (Honours) Computer Science</h3>
-                    <p>September 2012 – May 2016, School of Computing, Dublin Institute of Technology, Kevin Street, Dublin 8</p>
-                </li>
+            <ul class="skills-list">
+                <li>Red Hat Certified System Administrator (In Progress)</li>
+                <li>AWS Solutions Architect Associate (2024) <a href="https://www.credly.com/badges/891fd25a-aed3-4520-8a39-b4e99bdeed47" target="_blank"> - Credly</a></li>
+                <li>LPI Linux Essentials (2018)</li>
+                <li>CompTIA Network + (2017)</li>
+                <li>BSc (Honours) Computer Science, School of Computing, Dublin Institute of Technology, Kevin Street, Dublin 8 (2016)</li>
             </ul>
         </div>
         
         <div class="section">
             <h2>Projects</h2>
-            <h3> Cloud Resume Challenge</h3>
-            <p>Built a website based on AWS services as a solution to the Cloud Resume Challenge by Forrest Brazeal. A basic static wepbage with a counter for visits on the site. <a href="https://github.com/flarkmanagan/CloudResume">Github.com/flarkmanagan/CloudResume</a></p>
+            <h3> Cloud Resume Challenge | <a href="https://github.com/flarkmanagan/CloudResume">GitHub</a></h3>
+            <p>Developed a cloud-native website based on AWS services as part of the Cloud Resume Challenge.</p>
             <ul class="skills-list">
                 <li>Frontend: HTML, CSS and Javascript hosted on S3 with CloudFront as a CDN</li>
                 <li>Backend: Python Lambda function to connect to DynamoDB exposed as an API Gateway resource </li>
